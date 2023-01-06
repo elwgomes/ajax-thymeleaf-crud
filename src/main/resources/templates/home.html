@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CRUD</title>
+
+    <style>
+
+        /* * {margin: 0; padding: 0;} */
+        .container > button > a {text-decoration: none; text-transform: none; color: inherit; cursor: pointer}
+    </style>
+
+    <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+</head>
+<body>
+<nav class="nav-bar"><h1>Simple CRUD w/ SpringBoot</h1></nav>
+
+<div class="wrapper">
+    <form class="container" action="">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" placeholder="type your name..."><br><br>
+        <label for="age">Age:</label><br>
+        <input type="text" id="age" placeholder="type your age..."><br><br>
+        <label for="department">Department:</label><br>
+        <input type="text" id="department" placeholder="type your department"><br><br>
+        <button onclick="saveUser()">submit</button>
+        <button><a href="http://localhost:8080/employee/list">show data</a></button>
+    </form>
+</div>
+
+
+<script type="text/javascript">
+    function saveUser () {
+        var name = $("#name").val();
+        var age = $("#age").val();
+        var department = $("#department").val();
+
+        $.ajax({
+            method: "POST",
+            url: "employee/add",
+            data: JSON.stringify({name : name, age : age, department : department}),
+            contentType: "application/json;",
+            success: function ( response ) {
+                alert('New employee has been added!');
+            }
+        }).fail(function ( xhr, status, errorThrown ) {
+            alert("Error: " + xhr.responseText);
+        })
+    }
+</script>
+
+</body>
+</html>
