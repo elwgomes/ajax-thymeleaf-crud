@@ -41,7 +41,7 @@ public class EmployeeResource {
         return ResponseEntity.ok().body(obj);
     }
 
-    @DeleteMapping(value = "/{id}")
+    @DeleteMapping(value = "/delete/{id}")
     public ResponseEntity<Void> delete (@PathVariable Long id) {
         service.delete(id);
         return ResponseEntity.noContent().build();
