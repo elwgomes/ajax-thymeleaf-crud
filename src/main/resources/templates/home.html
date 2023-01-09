@@ -6,7 +6,7 @@
 
     <style>
 
-        /* * {margin: 0; padding: 0;} */
+         /** {margin: 0; padding: 0;}*/
         .container > button > a {text-decoration: none; text-transform: none; color: inherit; cursor: pointer}
     </style>
 
@@ -20,13 +20,13 @@
 <div class="wrapper">
     <form class="container" action="">
         <label for="name">Name:</label><br>
-        <input type="text" id="name" placeholder="type your name..."><br><br>
+        <input class="form-control" type="text" id="name" placeholder="type your name..."><br><br>
         <label for="age">Age:</label><br>
-        <input type="text" id="age" placeholder="type your age..."><br><br>
+        <input class="form-control" type="text" id="age" placeholder="type your age..."><br><br>
         <label for="department">Department:</label><br>
-        <input type="text" id="department" placeholder="type your department"><br><br>
-        <button onclick="saveUser()">submit</button>
-        <button><a href="http://localhost:8080/employee/list">show data</a></button>
+        <input class="form-control" type="text" id="department" placeholder="type your department"><br><br>
+        <button class="btn btn-success"onclick="saveUser()">submit</button>
+        <button class="btn btn-primary"><a href="http://localhost:8080/employee/list">show data</a></button>
     </form>
 </div>
 
@@ -48,6 +48,8 @@
         }).fail(function ( xhr, status, errorThrown ) {
             alert("Error: " + xhr.responseText);
         })
+
+        window.location.reload();
     }
 </script>
 

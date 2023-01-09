@@ -30,7 +30,7 @@
               <td><span th:text="${employee.name}"></span></td>
               <td><span th:text="${employee.age}"></span></td>
               <td><span th:text="${employee.department}"></span></td>
-              <td><button id="updateBtn">UPDATE</button></td>
+              <td><button class="btn btn-success">UPDATE</button></td>
               <td></td>
             <th scope="row"></th>
           </tr>
@@ -38,17 +38,18 @@
 
     </table>
 
-    <input type="text" id="id" placeholder="enter the id you want to delete">
-    <button onclick="deleteEmployee()">DELETE</button>
-    <br><br>
-    <button><a href="http://localhost:8080/">back</a></button>
+    <input class="form-control" type="text" id="id" placeholder="enter the id you want to delete"><br>
+    <a href="http://localhost:8080"><button class="btn btn-primary">back</button></a>
+
+    <button onclick="deleteEmployee()" class="btn btn-danger">DELETE</button>
+
 
     <script>
 
 function deleteEmployee (id) {
 
     var id = $("#id").val();
-    
+
     $.ajax({
         method: "DELETE",
         url: "delete/" + id,
