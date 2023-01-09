@@ -10,20 +10,20 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/employee")
+@RequestMapping(value = "/employees")
 @CrossOrigin
 public class EmployeeResource {
 
     @Autowired
     private EmployeeService service;
 
-    @GetMapping
+    @GetMapping(value = "/getAll")
     public ResponseEntity<List<Employee>> findAll() {
         List<Employee> list = service.findAll();
         return ResponseEntity.ok().body(list);
     }
 
-    @GetMapping(value = "findById")
+    @GetMapping(value = "/findById")
     public ResponseEntity<Employee> findById(@RequestParam Long id) {
         Employee obj = service.findById(id);
         return ResponseEntity.ok().body(obj);
@@ -35,7 +35,7 @@ public class EmployeeResource {
         return ResponseEntity.ok().body(obj);
     }
 
-    @PutMapping(value = "/{id}")
+    @PutMapping(value = "/update/{id}")
     public ResponseEntity<Employee> update (@PathVariable Long id, @RequestBody Employee obj) {
         obj = service.update(id, obj);
         return ResponseEntity.ok().body(obj);

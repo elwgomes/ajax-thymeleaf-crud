@@ -16,7 +16,6 @@
 <body>
 <nav class="nav-bar"><h1>Simple CRUD w/ SpringBoot</h1></nav>
 
-<div class="wrapper">
     <form class="container" action="">
         <label for="name">Name:</label><br>
         <input class="form-control" type="text" id="name" placeholder="type your name..."><br><br>
@@ -24,10 +23,11 @@
         <input class="form-control" type="text" id="age" placeholder="type your age..."><br><br>
         <label for="department">Department:</label><br>
         <input class="form-control" type="text" id="department" placeholder="type your department"><br><br>
-        <button class="btn btn-success"onclick="saveUser()">submit</button>
-        <button class="btn btn-primary"><a href="http://localhost:8080/employee/list">show data</a></button>
+<!--        <button class="btn btn-primary"><a href="http://localhost:8080/employee/list">show data</a></button>-->
     </form>
-</div>
+<button class="btn btn-success"onclick="saveUser()">submit</button>
+<a href="http://localhost:8080/employees"><button class="btn btn-primary">show data</button></a>
+
 
 
 <script type="text/javascript">
@@ -39,7 +39,7 @@
 
         $.ajax({
             method: "POST",
-            url: "employee/add",
+            url: "employees/add",
             data: JSON.stringify({name : name, age : age, department : department}),
             contentType: "application/json;",
             success: function ( response ) {
@@ -48,6 +48,11 @@
         }).fail(function ( xhr, status, errorThrown ) {
             alert("Error: " + xhr.responseText);
         })
+
+        $("#name").val('');
+        $("#age").val('');
+        $("#department").val('');
+
     }
 
 </script>

@@ -14,7 +14,7 @@ public class EmployeeController {
     @Autowired
     private EmployeeService service;
 
-    @RequestMapping(value = "/employee/list")
+    @RequestMapping(value = "/employees")
     public String showEmployee (Model model) {
     model.addAttribute("employees", service.findAll());
         return "showdata";
