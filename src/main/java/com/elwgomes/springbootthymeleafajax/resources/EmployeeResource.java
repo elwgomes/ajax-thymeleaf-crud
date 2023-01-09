@@ -23,8 +23,8 @@ public class EmployeeResource {
         return ResponseEntity.ok().body(list);
     }
 
-    @GetMapping(value = "/{id}")
-    public ResponseEntity<Employee> findById(@PathVariable Long id) {
+    @GetMapping(value = "findById")
+    public ResponseEntity<Employee> findById(@RequestParam Long id) {
         Employee obj = service.findById(id);
         return ResponseEntity.ok().body(obj);
     }
